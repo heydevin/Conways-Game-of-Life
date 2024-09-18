@@ -19,9 +19,9 @@ function App() {
       20
     );
     const mobileSize = Math.min(
-      (window.innerWidth - 40) / ROWS,
-      (window.innerHeight - 200) / COLS,
-      15
+      (window.innerWidth - 32) / COLS,
+      (window.innerHeight - 200) / ROWS,
+      20
     );
     return isMobile ? mobileSize : size;
   };
@@ -177,12 +177,8 @@ function App() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: isMobile
-              ? `repeat(${ROWS}, ${screenSize}px)`
-              : `repeat(${COLS}, ${screenSize}px)`,
-            gridTemplateRows: isMobile
-              ? `repeat(${COLS}, ${screenSize}px)`
-              : `repeat(${ROWS}, ${screenSize}px)`,
+            gridTemplateColumns: `repeat(${COLS}, ${screenSize}px)`,
+            gridTemplateRows: `repeat(${ROWS}, ${screenSize}px)`,
           }}
         >
           {grid.map((rows, originalRowIndex) =>
